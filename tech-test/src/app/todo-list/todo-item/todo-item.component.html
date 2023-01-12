@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row" [ngClass]="{'completed' : todoItem.isCompleted}" [hidden]="todoItem.isHidden">
+        <div class="col">{{todoItem.label}}</div>
+        <div class="col col-sm-5">{{todoItem.description}}</div>
+        <div class="col">{{todoItem.category}}</div>
+        <div class="col col-sm-2">
+            <ng-container *ngIf="todoItem.isCompleted">
+                Completed on {{todoItem.completedOn | date: 'MMM d, y'}}
+            </ng-container>
+            <ng-container *ngIf="!todoItem.isCompleted">
+                Ready
+            </ng-container>
+        </div>
+        <div class="col col-sm-3">
+            <div class="d-flex flex-row-reverse mb-3">
+                <button class="p-1 btn btn-link" (click)="openDeleteTodoModal(deleteConfirmation, todoItem.id)">
+                    <i class="bi bi-x-lg" role="button"></i>
+                </button>
+                <button class="p-1 btn btn-link">
+                    <i class="bi bi-pencil-square" role="button" (click)="openEditTodoModal(todoItem)"></i>
+                </button>
+                <button class="p-1 btn btn-link" [disabled]="todoItem.isCompleted"
+                    (click)="openCompleteTodoModal(completeConfirmation, todoItem)">
+                    <i class="bi bi-check-circle" role="button"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #deleteConfirmation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Remove Todo item</h4>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure, you want to remove this item?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="c('Remove click')">Remove</button>
+        <button type="button" class="btn btn-outline-dark" (click)="d('Cancel remove click')">Cancel</button>
+    </div>
+</ng-template>
+<ng-template #completeConfirmation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Complete Todo item</h4>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure, you want to complete this item?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="c('Complete click')">Complete</button>
+        <button type="button" class="btn btn-outline-dark" (click)="d('Cancel remove click')">Cancel</button>
+    </div>
+</ng-template>
+
+<app-add-edit-todo [todoCategories]="todoCategories" [openModal]="openAddEditModal" (onCompleteAction)="editTodoItem.next($event)"
+    (isCategorySelected)="isCategorySelected($event)">
+</app-add-edit-todo>

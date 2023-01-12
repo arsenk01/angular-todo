@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="p-2">
+            Label, Description, Category name and status:
+        </div>
+        <div class="p-2">
+            <div class="input-group mb-3">
+                <div class="position-relative">
+                    <input type="text" class="form-control p-2" placeholder="Filter todo"
+                        aria-label="Todo label" aria-describedby="button-addon2"
+                        [(ngModel)]="filterValue" (keyup)="filterTodo($event)">
+                    <div class="cancel-search position-absolute" role="button"><i class="bi bi-x-lg" (click)="resetFilter()"></i></div>
+                </div>
+
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">{{selectedFilterType}}</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="#" *ngFor="let filterType of filterTypes"
+                            [hidden]="filterType.isHidden" (click)="chooseFilterType(filterType.name)">
+                            {{filterType.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-container *ngFor="let todoItem of todoItems | async">
+    <app-todo-item [todoItem]="todoItem" [todoCategories]="todoCategories" (editTodoItem)="editTodoItem($event)"
+        (deleteTodoItem)="deleteTodoItem($event)">
+    </app-todo-item>
+</ng-container>
+
+<div class="container">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="p-2">
+        </div>
+        <div class="p-2">
+            <button class="btn btn-primary" (click)="openAddModal()">Add Todo</button>
+        </div>
+    </div>
+</div>
+
+<app-add-edit-todo [todoCategories]="todoCategories" [openModal]="openAddEditModal"
+    (onCompleteAction)="addTodoItem($event)" (isCategorySelected)="isCategorySelected($event)">
+</app-add-edit-todo>

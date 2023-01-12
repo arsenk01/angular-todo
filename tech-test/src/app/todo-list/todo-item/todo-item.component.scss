@@ -1,0 +1,31 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+// TODO: define colors file and use from there
+:host {
+    --todo-item-container-row-margin: 22px 0;
+    --todo-item-container-row-border: 1px solid #0a5bc4;
+    --todo-item-container-row-padding: 10px;
+    --todo-item-container-row-completed-background-color: #7baf7b;
+    --todo-item-container-row-completed-border: 1px solid #015801;
+    --todo-item-container-row-completed-color: white;
+
+    @include media-breakpoint-down(sm) {
+        // put mobile styling/adjustments here
+    }
+
+    .container {
+        .row {
+            margin: var(--todo-item-container-row-margin);
+            border: var(--todo-item-container-row-border);
+            padding: var(--todo-item-container-row-padding);
+
+            &.completed {
+                background-color: var(--todo-item-container-row-completed-background-color);
+                border: var(--todo-item-container-row-completed-border);
+                color: var(--todo-item-container-row-completed-color);
+            }
+        }
+    }
+}

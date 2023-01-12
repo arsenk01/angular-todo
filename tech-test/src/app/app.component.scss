@@ -1,0 +1,23 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+:host {
+  --app-title-text-font-size: 20px;
+  --app-title-text-line-height: 1.5;
+  --app-title-text-color: #20364b;
+  --app-title-text-font-weight: 600;
+  --app-title-text-font-family: 'ProximaNova', sans-serif;
+
+  @include media-breakpoint-down(sm) {
+    // put mobile styling/adjustments here
+  }
+
+  .title-text {
+    font-size: var(--app-title-text-font-size);
+    line-height: var(--app-title-text-line-height);
+    color: var(--app-title-text-color);
+    font-weight: var(--app-title-text-font-weight);
+    font-family: var(--app-title-text-font-family);
+  }
+}

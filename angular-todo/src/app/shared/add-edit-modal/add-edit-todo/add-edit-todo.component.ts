@@ -17,10 +17,8 @@ export class AddEditTodoComponent implements OnInit {
 
   @Output() isCategorySelected: EventEmitter<TodoItem> = new EventEmitter();
   @ViewChild('editTodo') public editTodo: TemplateRef<any>;
-
-  public editSelectedTodo: TodoItem;
-  public addEditForm: FormGroup;
   
+  public addEditForm: FormGroup;  
   private subscriptions: Subscription = new Subscription();
 
   constructor(private _modalService: NgbModal, fb: FormBuilder) { 
@@ -35,12 +33,10 @@ export class AddEditTodoComponent implements OnInit {
     this.subscriptions.add(
       this.openModal // on modal open call
         .subscribe(v => {
-          this.editSelectedTodo = v; // updating the UI inputs with the current values
-
           // opening the Add/Edit modal
           this._modalService.open(this.editTodo, { ariaLabelledBy: 'modal-basic-title' }).result.then( 
             (result) => { // on Submit action
-              this.onCompleteAction.next(v);
+              this.onCompleteAction.next(this.addEditForm.value);
             }
           );
         }));

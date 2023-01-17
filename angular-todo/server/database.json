@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 3,
-      "label": "Use UTC date 6",
+      "label": "Use UTC date 4",
       "description": "Use UTC conversion for dates",
       "category": "bureaucracy",
       "done": false
@@ -65,8 +65,8 @@
     },
     {
       "id": 13,
-      "label": "test",
-      "description": "test",
+      "label": "Upgrade Angular",
+      "description": "From 12 to 15",
       "category": "house",
       "done": false
     }

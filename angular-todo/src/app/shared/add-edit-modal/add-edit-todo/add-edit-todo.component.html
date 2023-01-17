@@ -6,18 +6,15 @@
         <form [formGroup]="addEditForm" novalidate>
             <div class="mb-3">
                 <label for="nameLabel" class="form-label">Name/Label:</label>
-                <input type="text" class="form-control" id="nameLabel" placeholder="My task" formControlName="label"
-                    [(ngModel)]="editSelectedTodo.label">
+                <input type="text" class="form-control" id="nameLabel" placeholder="My task" formControlName="label">
             </div>
             <div class="mb-3">
                 <label for="todoDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="todoDescription" rows="3" formControlName="description"
-                    [(ngModel)]="editSelectedTodo.description"></textarea>
+                <textarea class="form-control" id="todoDescription" rows="3" formControlName="description"></textarea>
             </div>
             <div class="mb-3">
                 <label for="todoCategory" class="form-label">Category</label>
-                <select class="form-select" id="todoCategory" aria-label="Todo Category" formControlName="category"
-                    [(ngModel)]="editSelectedTodo.category">
+                <select class="form-select" id="todoCategory" aria-label="Todo Category" formControlName="category">
                     <option disabled selected>Choose category</option>
                     <option *ngFor="let category of todoCategories" [value]="category"
                         [selected]="isCategorySelected.next(category)">{{category}}
@@ -27,7 +24,8 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-dark" (click)="c('Save click')" [disabled]="addEditForm.pristine || addEditForm.invalid" >Save</button>
+        <button type="submit" class="btn btn-dark" (click)="c('Save click')"
+            [disabled]="addEditForm.pristine || addEditForm.invalid">Save</button>
         <button type="button" class="btn btn-outline-dark" (click)="d('Cancel edit click')">Cancel</button>
     </div>
 </ng-template>

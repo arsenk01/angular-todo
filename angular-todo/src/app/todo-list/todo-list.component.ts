@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { debounceTime, takeUntil } from 'rxjs/operators';
+import { debounceTime, map, takeUntil, tap } from 'rxjs/operators';
 import { TodoCategory } from './todo-category';
 import { TodoFilterType } from './todo-filter-type';
 import { TodoItem } from './todo-item/todo-item';
@@ -11,8 +11,8 @@ import { TodoService } from './todo.service';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnInit {  
-  public todoItems: Observable<TodoItem[]>; // async list of Todo items
+export class TodoListComponent implements OnInit {
+  public todos$: TodoItem[]; // async list of Todo items
   public todoCategories: TodoCategory[]; // todo item categories 
   public selectedFilterType: string; // the current filter type (like 'by label) which used to fitler todo by
   public newTodo: TodoItem = new TodoItem(0, '', '', null, false); // just an empty todo for add modal
@@ -24,7 +24,11 @@ export class TodoListComponent implements OnInit {
   public openAddEditModal: Subject<TodoItem> = new Subject(); // the caller for add/edit modal
   public onAddEditComplete: Subject<void> = new Subject(); // the ajax complete result callback
 
-  private _todoList: TodoItem[];  // all todo items
+  public get todos(): Readonly<TodoItem[]> {
+    return this._todoList;
+  }
+
+  private _todoList: TodoItem[] = [];  // all todo items
   private _filterSubject: BehaviorSubject<string> = new BehaviorSubject('');
   private readonly _filterDelayTime: number = 500; // user typing delay before call the filtering  
 
@@ -57,11 +61,9 @@ export class TodoListComponent implements OnInit {
     this._deleteTodoItemDestroyed$.complete();
   }
 
-  public getTodoList(): void {   
-    this.todoItems =  this.todoService.getTodoList()
-    .pipe(takeUntil(this._getTodoListDestroyed$));
-
-    this.todoItems
+  public getTodoList(): void {
+    this.todoService.getTodoList()
+      .pipe(takeUntil(this._getTodoListDestroyed$))
       .subscribe(todos => {
         this._todoList = todos;
         this.todoCategories = [... new Set(this._todoList.map(t => t.category))]; // making the taken categories unique

@@ -26,7 +26,7 @@
         </div>
     </div>
 </div>
-<ng-container *ngFor="let todoItem of todoItems | async">
+<ng-container *ngFor="let todoItem of todos">
     <app-todo-item [todoItem]="todoItem" [todoCategories]="todoCategories" (editTodoItem)="editTodoItem($event)"
         (deleteTodoItem)="deleteTodoItem($event)">
     </app-todo-item>

@@ -5,10 +5,10 @@
         <div class="col-md-2 col-sm-4 text-center">{{todoItem.category}}</div>
         <div class="col-md-1 col-sm-4 text-center">
             <ng-container *ngIf="todoItem.isCompleted">
-                <i class="bi bi-check2-all text-light" title="{{todoItem.completedOn | date: 'MMM d, y'}}"></i>
+                <i class="bi bi-check2-all text-light" title="Completed on {{todoItem.completedOn | date: 'MMM d, y'}}"></i>
             </ng-container>
             <ng-container *ngIf="!todoItem.isCompleted">
-                <i class="bi bi-hourglass text-info" title="not complete"></i>
+                <i class="bi bi-hourglass text-info" title="Active"></i>
             </ng-container>
         </div>
         <div class="col-md-1 col-sm-4 text-center">

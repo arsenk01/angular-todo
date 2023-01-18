@@ -51,6 +51,22 @@ export class TodoItemComponent implements OnInit {
       );
   }
 
+  public openResetCompleteTodoModal(content: any, todoItem: TodoItem): void {
+    this._modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result
+      .then(
+        () => {
+          let updatedTodoItem = JSON.parse(JSON.stringify(todoItem)); // creating the deep copy for the todo item to not harm the existing one
+
+          updatedTodoItem.completedOn = null;
+          updatedTodoItem.isCompleted = false;
+
+          this.editTodoItem.next(updatedTodoItem); // call the edit todo performer callback 
+        }
+      );
+  }
+
   public openEditTodoModal(todoItem: TodoItem): void {
     this.editSelectedTodo = JSON.parse(JSON.stringify(todoItem)); // sending the deep copy to edit modal to not see dynamic updates on UI
     this.openAddEditModal.next(this.editSelectedTodo); // open edit modal and fill the values

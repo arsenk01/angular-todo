@@ -68,10 +68,6 @@
       "label": "Upgrade Angular",
       "description": "From 12 to 15",
       "category": "house",
-      "id": 16,
-      "label": "Todo reset",
-      "description": "Ability to reset the completed state",
-      "category": "bureaucracy",
       "done": false
     },
     {

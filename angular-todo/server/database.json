@@ -36,23 +36,23 @@
       "done": false
     },
     {
-      "id": 8,
-      "label": "Code fixes",
-      "description": "Form uses form control and ngModel, when only form control is needed",
+      "id": 12,
+      "label": "TODO priority",
+      "description": "Order by priority and others",
       "category": "house",
       "done": false
     },
     {
-      "id": 9,
-      "label": "Add/Edit bug",
-      "description": "list does not get updated when new tasks added, edited, or deleted",
-      "category": "house",
+      "id": 14,
+      "label": "Add language support",
+      "description": "Translations (at least for EN, FR)",
+      "category": "bureaucracy",
       "done": false
     },
     {
-      "id": 10,
-      "label": "Empty cateogries",
-      "description": "Cannot add tasks when the list is empty because no category can be selected which makes the form invalid",
+      "id": 15,
+      "label": "Add special/important todo",
+      "description": "Ability to set todo as important",
       "category": "house",
       "done": false
     },
@@ -68,6 +68,10 @@
       "label": "Upgrade Angular",
       "description": "From 12 to 15",
       "category": "house",
+      "id": 16,
+      "label": "Todo reset",
+      "description": "Ability to reset the completed state",
+      "category": "bureaucracy",
       "done": false
     },
     {

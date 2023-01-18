@@ -19,9 +19,13 @@
                 <button class="p-1 btn btn-link">
                     <i class="bi bi-pencil-square" role="button" (click)="openEditTodoModal(todoItem)"></i>
                 </button>
-                <button class="p-1 btn btn-link" [disabled]="todoItem.isCompleted"
+                <button class="p-1 btn btn-link" *ngIf="!todoItem.isCompleted"
                     (click)="openCompleteTodoModal(completeConfirmation, todoItem)">
                     <i class="bi bi-check-circle" role="button"></i>
+                </button>
+                <button class="p-1 btn btn-link" *ngIf="todoItem.isCompleted"
+                    (click)="openResetCompleteTodoModal(resetCompleteConfirmation, todoItem)">
+                    <i class="bi bi-arrow-counterclockwise"></i>
                 </button>
             </div>
         </div>
@@ -35,7 +39,7 @@
         <p>Are you sure, you want to remove this item?</p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-dark" (click)="c('Remove click')">Remove</button>
+        <button type="button" class="btn btn-dark" (click)="c('Remove click')">Apply</button>
         <button type="button" class="btn btn-outline-dark" (click)="d('Cancel remove click')">Cancel</button>
     </div>
 </ng-template>
@@ -47,7 +51,19 @@
         <p>Are you sure, you want to complete this item?</p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-dark" (click)="c('Complete click')">Complete</button>
+        <button type="button" class="btn btn-dark" (click)="c('Complete click')">Apply</button>
+        <button type="button" class="btn btn-outline-dark" (click)="d('Cancel remove click')">Cancel</button>
+    </div>
+</ng-template>
+<ng-template #resetCompleteConfirmation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Reset Todo item</h4>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure, you want to reset the complete state?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="c('Complete click')">Apply</button>
         <button type="button" class="btn btn-outline-dark" (click)="d('Cancel remove click')">Cancel</button>
     </div>
 </ng-template>

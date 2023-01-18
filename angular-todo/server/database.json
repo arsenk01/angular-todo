@@ -5,7 +5,7 @@
       "label": "Use UTC date 4",
       "description": "Use UTC conversion for dates",
       "category": "bureaucracy",
-      "done": false
+      "done": "18-01-2023"
     },
     {
       "id": 4,
@@ -68,6 +68,13 @@
       "label": "Upgrade Angular",
       "description": "From 12 to 15",
       "category": "house",
+      "done": false
+    },
+    {
+      "id": 14,
+      "label": "Add language support",
+      "description": "Translations (at least for EN, FR)",
+      "category": "bureaucracy",
       "done": false
     }
   ]

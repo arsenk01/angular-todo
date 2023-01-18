@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container todo-wrap">
     <div class="row" [ngClass]="{'completed' : todoItem.isCompleted}" [hidden]="todoItem.isHidden">
-        <div class="col">{{todoItem.label}}</div>
-        <div class="col col-sm-5">{{todoItem.description}}</div>
-        <div class="col">{{todoItem.category}}</div>
-        <div class="col col-sm-2">
+        <div class="col-md-3 text-center text-md-start">{{todoItem.label}}</div>
+        <div class="col-md col-sm-12 text-md-start text-center">{{todoItem.description}}</div>
+        <div class="col-md-2 col-sm-4 text-center">{{todoItem.category}}</div>
+        <div class="col-md-1 col-sm-4 text-center">
             <ng-container *ngIf="todoItem.isCompleted">
-                Completed on {{todoItem.completedOn | date: 'MMM d, y'}}
+                <i class="bi bi-check2-all text-light" title="{{todoItem.completedOn | date: 'MMM d, y'}}"></i>
             </ng-container>
             <ng-container *ngIf="!todoItem.isCompleted">
-                Ready
+                <i class="bi bi-hourglass text-info" title="not complete"></i>
             </ng-container>
         </div>
-        <div class="col col-sm-3">
-            <div class="d-flex flex-row-reverse mb-3">
+        <div class="col-md-1 col-sm-4 text-center">
+            <div class="d-flex flex-row-reverse justify-content-center mb-3 align-content-center">
                 <button class="p-1 btn btn-link" (click)="openDeleteTodoModal(deleteConfirmation, todoItem.id)">
                     <i class="bi bi-x-lg" role="button"></i>
                 </button>
@@ -52,6 +52,6 @@
     </div>
 </ng-template>
 
-<app-add-edit-todo [todoCategories]="todoCategories" [openModal]="openAddEditModal" (onCompleteAction)="editTodoItem.next($event)"
-    (isCategorySelected)="isCategorySelected($event)">
+<app-add-edit-todo [todoCategories]="todoCategories" [openModal]="openAddEditModal"
+    (onCompleteAction)="editTodoItem.next($event)" (isCategorySelected)="isCategorySelected($event)">
 </app-add-edit-todo>

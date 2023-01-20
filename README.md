@@ -26,6 +26,7 @@ Angular Todo uses **only** open source projects:
 | Karma | [6.3.4](https://github.com/karma-runner/karma/releases/tag/v6.3.4) |
 | Jasmin | [4.0.3](https://github.com/karma-runner/karma-jasmine/releases/tag/v4.0.1) |
 
+> Note: project is configured to use [SASS](https://sass-lang.com/).
 ---
 
 ## Installation

@@ -1,41 +1,93 @@
-# Angular TODO application
-The latest supported version is Angular 12.
-TODO: need upgrade ))
+# Angular Todo app
+_Simple todo application, that is easy to understand and extend_
 
-###  Spec:
-What is included:
-* Modular angular code that talks to a RESTful API endpoints.
-* TS code unit tests
-* SASS stylings with an example of proper usage of SASS variables
-* Bootstrap 5 styles
-* A todo list single page application.
-* Add/Edit/Delete todo items
-* Mark todo item as done
-* Ability to filter items in the todo list with choosing the filter type
+[![N|Solid](https://i.postimg.cc/DwtT0VJS/powered-by-Angular-CLI-logo.png)](https://github.com/angular/angular-cli)
 
-### Server
-The server runs under JSON server with the following endpoints:
-GET  from http://localhost:3000/tasks ← list all todo items                 
-GET /1 ← view detail of a specific todo item, where id = 1                  
-POST ← creates a new todo item (as long as it has an available id)                 
-PATCH /1 ← edits the todo item with id = 1             
-DELETE /1 ← deletes the todo item, with id = 1               
 
-### Quick start
-#### clone the repo
-Go to your developer folder
-Clone this project repository to your local machine
+## The application currently supports Angular 15.1.2 version
 
-#### change into the repo directory
-`cd main`
+## Features
+- A simple todo application, allowing to Create, Update, Delete and mark  Todo as completed 
+- Works with the [JSON Server](https://github.com/typicode/json-server) to minimize the need of external API challanges
+- Simply run the server and application and start experimenting with todos
+- You can copy the Todo database and use it elsewere without a need for something unusual than just using the JSON file.
 
-#### install
-`npm install`
+## What's in the box
+Angular Todo uses **only** open source projects:
+- [Angular CLI](https://github.com/angular/angular-cli/releases/tag/15.1.2) - **15.1.2**
+- [Bootstap](https://github.com/twbs/bootstrap/releases/tag/v5.2.3) - **5.2.3**
+- [Bootstrap Icons](https://icons.getbootstrap.com/icons/github/) - **1.10.3**
 
-#### serve
-`npm run server`                   
-`npm run start`
+# Addtional specs
 
-#### Running unit tests
-`npm run test`
+| Feature | Version |
+| ------ | ------ |
+| Typescript | [4.9.4](https://github.com/microsoft/TypeScript/releases/tag/v4.9.4) |
+| Karma | [6.3.4](https://github.com/karma-runner/karma/releases/tag/v6.3.4) |
+| Jasmin | [4.0.3](https://github.com/karma-runner/karma-jasmine/releases/tag/v4.0.1) |
 
+---
+
+## Installation
+
+Dillinger requires [Node.js](https://nodejs.org/) latest to run, _but you can try your luck with previous versions_ )).
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+cd angular-todo
+npm i
+node app
+```
+
+For production environments...
+
+```sh
+npm install --production
+NODE_ENV=production node app
+```
+
+## Development
+### RUN
+To run the application server:
+```sh
+npm run server
+```
+Then you can run the main application:
+```sh
+npm start
+```
+> Note: Application uses 4200 port as default. 
+Want to change the port? 
+Then go to `package.json` and change `ng serve --open` to `ng serve --port XXXX --open`
+
+### BUILD
+To build the application run:
+```sh
+ng build
+```
+
+### UNIT TESTS
+To execute the unit tests run:
+```sh
+ng test
+```
+
+### END 2 END UNIT TESTS
+To execute the end-to-end unit tests run:
+```sh
+ng e2e
+```
+
+## CODE SCAFFOLDING
+
+Run `ng g c component-name`('g' is shorter version for 'generate', 'c' is for 'component') to generate a new component. 
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+---
+
+
+## License
+MIT
+
+**Free Software, Hell Yeah!**

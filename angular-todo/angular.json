@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tech-test": {
+    "angular-todo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tech-test",
+            "outputPath": "dist/angular-todo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -45,7 +45,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -69,19 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tech-test:build",
-            "sourceMap": true
+            "browserTarget": "angular-todo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tech-test:build:production"
+              "browserTarget": "angular-todo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tech-test:build"
+            "browserTarget": "angular-todo:build"
           }
         },
         "test": {
@@ -101,32 +99,19 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tech-test:serve"
+            "devServerTarget": "angular-todo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tech-test:serve:production"
+              "devServerTarget": "angular-todo:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "tech-test"
+    }
+  }
 }

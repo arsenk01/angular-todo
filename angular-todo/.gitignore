@@ -32,6 +32,8 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
+/.angular/cache
+package-lock.json
 /.sass-cache
 /connect.lock
 /coverage

@@ -3,7 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject, Subscription } from 'rxjs';
 import { TodoCategory } from 'src/app/todo-list/todo-category';
 import { TodoItem } from 'src/app/todo-list/todo-item/todo-item';
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { UntypedFormGroup,  UntypedFormBuilder,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-edit-todo',
@@ -18,10 +18,10 @@ export class AddEditTodoComponent implements OnInit {
   @Output() isCategorySelected: EventEmitter<TodoItem> = new EventEmitter();
   @ViewChild('editTodo') public editTodo: TemplateRef<any>;
   
-  public addEditForm: FormGroup;  
+  public addEditForm: UntypedFormGroup;  
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private _modalService: NgbModal, fb: FormBuilder) { 
+  constructor(private _modalService: NgbModal, fb: UntypedFormBuilder) { 
     this.addEditForm = fb.group({
       label: ['', Validators.required ],
       description: ['', Validators.required ],

@@ -80,11 +80,6 @@ To execute the end-to-end unit tests run:
 ng e2e
 ```
 
-## CODE SCAFFOLDING
-
-Run `ng g c component-name`('g' is shorter version for 'generate', 'c' is for 'component') to generate a new component. 
-You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ---
 
 

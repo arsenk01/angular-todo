@@ -31,7 +31,7 @@ Angular Todo uses **only** open source projects:
 
 ## Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) latest to run, _but you can try your luck with previous versions_ )).
+Angular Todo requires [Node.js](https://nodejs.org/) latest to run, _but you can try your luck with previous versions_ )).
 
 Install the dependencies and devDependencies and start the server.
 

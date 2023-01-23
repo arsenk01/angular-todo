@@ -71,12 +71,6 @@ To execute the end-to-end unit tests run:
 ```sh
 ng e2e
 ```
-
----
-
-_If you have any suggestions, please don't hesitate to contact me. I will sort it out and add a ticket, which may end up in one of the future releases.
-))_
-
 ---
 
 ## License
